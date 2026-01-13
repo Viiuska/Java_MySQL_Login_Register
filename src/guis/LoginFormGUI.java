@@ -37,12 +37,12 @@ public class LoginFormGUI extends Form{
         add(usernameField);
 
         JLabel passwordLabel = new JLabel("Password: ");
-        passwordLabel.setBounds(30,335,450,55);
+        passwordLabel.setBounds(30,250,450,55);
         passwordLabel.setForeground(CommonConstants.TEXT_COLOR);
         passwordLabel.setFont(new Font("Helvetica", Font.PLAIN, 18 ));
 
         JPasswordField passwordField = new JPasswordField();
-        passwordField.setBounds(30,380,450,55);
+        passwordField.setBounds(30,295,450,55);
         passwordField.setBackground(CommonConstants.SECONDARY_COLOR);
         passwordField.setForeground(CommonConstants.TEXT_COLOR);
         passwordField.setFont(new Font("Helvetica", Font.PLAIN, 24 ));
@@ -50,5 +50,13 @@ public class LoginFormGUI extends Form{
         add(passwordLabel);
         add(passwordField);
 
+        JButton loginButton = new JButton("Login");
+        loginButton.setFont(new Font("Helvetica", Font.BOLD, 18));
+
+        loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        loginButton.setBackground(CommonConstants.TEXT_COLOR);
+        loginButton.setBounds(125,520,250,50);
+
+        add(loginButton);
     }
 }
