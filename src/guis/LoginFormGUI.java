@@ -55,8 +55,17 @@ public class LoginFormGUI extends Form{
 
         loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         loginButton.setBackground(CommonConstants.TEXT_COLOR);
-        loginButton.setBounds(125,520,250,50);
+        loginButton.setBounds(125,450,250,50);
 
         add(loginButton);
+
+        JLabel registerLabel = new JLabel("Register Here");
+        registerLabel.setFont(new Font("Helvetica", Font.BOLD, 18));
+        registerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        registerLabel.setForeground(CommonConstants.TEXT_COLOR);
+        registerLabel.setBounds(125,520,250,30);
+
+        add(registerLabel);
     }
 }
