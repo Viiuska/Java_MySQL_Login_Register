@@ -46,4 +46,25 @@ public class MyJDBC {
         }
         return true;
     }
+
+    public static boolean validateLogin(String username, String password){
+        try {
+            Connection connection = DriverManager.getConnection(CommonConstants.DB_URL, CommonConstants.DB_USERNAME, CommonConstants.DB_PASSWORD);
+
+            PreparedStatement validateUser = connection.prepareStatement("SELECT * FROM " + CommonConstants.DB_USERS_TABLE_NAME + " WHERE USERNAME = ? AND PASSWORD = ? ");
+
+            validateUser.setString(1, username);
+            validateUser.setString(2, password);
+
+            ResultSet resultSet = validateUser.executeQuery();
+
+            if(!resultSet.isBeforeFirst()){
+                return false;
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return true;
+    }
 }
