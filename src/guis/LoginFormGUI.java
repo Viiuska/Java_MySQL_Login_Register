@@ -60,7 +60,7 @@ public class LoginFormGUI extends Form{
         add(loginButton);
 
         JLabel registerLabel = new JLabel("Register Here");
-        registerLabel.setFont(new Font("Helvetica", Font.BOLD, 18));
+        registerLabel.setFont(new Font("Helvetica", Font.BOLD, 16));
         registerLabel.setHorizontalAlignment(SwingConstants.CENTER);
         registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         registerLabel.setForeground(CommonConstants.TEXT_COLOR);

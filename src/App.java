@@ -1,4 +1,5 @@
 import guis.LoginFormGUI;
+import guis.RegisterFormGUI;
 
 import javax.swing.*;
 
@@ -7,7 +8,9 @@ public class App {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new LoginFormGUI().setVisible(true);
+
+                //new LoginFormGUI().setVisible(true);
+                new RegisterFormGUI().setVisible(true);
             }
         });
     }
