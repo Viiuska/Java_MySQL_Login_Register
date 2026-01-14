@@ -1,5 +1,5 @@
 import guis.LoginFormGUI;
-import guis.RegisterFormGUI;
+import db.MyJDBC;
 
 import javax.swing.*;
 
@@ -10,6 +10,8 @@ public class App {
             public void run() {
 
                 new LoginFormGUI().setVisible(true);
+
+                System.out.println(MyJDBC.checkUser("username"));
 
             }
         });
