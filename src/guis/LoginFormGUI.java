@@ -1,9 +1,12 @@
 package guis;
 
 import constants.CommonConstants;
+import db.MyJDBC;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -58,6 +61,20 @@ public class LoginFormGUI extends Form{
         loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         loginButton.setBackground(CommonConstants.TEXT_COLOR);
         loginButton.setBounds(125,450,250,50);
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+
+                if(MyJDBC.validateLogin(username, password)){
+                    JOptionPane.showMessageDialog(LoginFormGUI.this, "Login successful");
+                }else{
+                    JOptionPane.showMessageDialog(LoginFormGUI.this, "Login failed");
+                }
+            }
+        });
 
         add(loginButton);
 
