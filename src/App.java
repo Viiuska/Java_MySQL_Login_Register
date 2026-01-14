@@ -11,7 +11,7 @@ public class App {
 
                 new LoginFormGUI().setVisible(true);
 
-                System.out.println(MyJDBC.checkUser("username"));
+                System.out.println(MyJDBC.register("username112", "password"));
 
             }
         });
