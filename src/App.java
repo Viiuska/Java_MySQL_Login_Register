@@ -11,7 +11,7 @@ public class App {
 
                 new LoginFormGUI().setVisible(true);
 
-                System.out.println(MyJDBC.validateLogin("username112", "password"));
+
 
             }
         });

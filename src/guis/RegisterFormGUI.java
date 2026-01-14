@@ -1,9 +1,12 @@
 package guis;
 
 import constants.CommonConstants;
+import db.MyJDBC;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -71,6 +74,29 @@ public class RegisterFormGUI extends Form{
         registerButton.setBackground(CommonConstants.TEXT_COLOR);
         registerButton.setBounds(125,460,250,50);
 
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+                String rePassword = new String(passwordAgainField.getPassword());
+                if(validateUserInput(username, password, rePassword)){
+                    if(MyJDBC.register(username, password)){
+                        RegisterFormGUI.this.dispose();
+
+                        LoginFormGUI loginFormGUI = new LoginFormGUI();
+                        loginFormGUI.setVisible(true);
+
+                        JOptionPane.showMessageDialog(loginFormGUI, "Registration was successful");
+                    } else{
+                        JOptionPane.showMessageDialog(RegisterFormGUI.this, "Registration failed and/or Username already taken");
+                    }
+                } else{
+                    JOptionPane.showMessageDialog(RegisterFormGUI.this, "Invalid input and/or Passwords must match");
+                }
+            }
+        });
+
         add(registerButton);
 
         JLabel loginLabel = new JLabel("Have an account? Login Here");
@@ -92,4 +118,16 @@ public class RegisterFormGUI extends Form{
 
         add(loginLabel);
     }
+
+
+    private boolean validateUserInput(String username, String password, String rePassword){
+        if(username.length() ==0 || password.length()==0 || rePassword.length() ==0){
+            return false;
+        }
+        if(!password.equals(rePassword)){
+            return false;
+        }
+        return true;
+    }
+
 }
