@@ -9,8 +9,8 @@ public class App {
             @Override
             public void run() {
 
-                //new LoginFormGUI().setVisible(true);
-                new RegisterFormGUI().setVisible(true);
+                new LoginFormGUI().setVisible(true);
+
             }
         });
     }
